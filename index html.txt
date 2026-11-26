@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohanyere Jude | AI Automation Portfolio</title>
+  <meta name="description" content="Ohanyere Jude's portfolio showcasing AI automation and n8n workflow projects.">
+
+  <style>
+    :root {
+      --bg: #080f1e;
+      --panel: #101c31;
+      --blue: #4d8dff;
+      --light: #dce7fa;
+      --muted: #9aabc4;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--light);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,15,30,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 27px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      background:
+        radial-gradient(ellipse at 80% 30%, rgba(77,141,255,.18), transparent 42%);
+    }
+
+    .eyebrow {
+      color: #76a8ff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: 1.1;
+      color: white;
+      max-width: 750px;
+      margin-bottom: 18px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .hero h2 {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #b7c9e8;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      background: var(--blue);
+      color: white;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #3478ed;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      margin-left: 10px;
+    }
+
+    section { padding: 85px 0; }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading small {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .section-heading h2 {
+      color: white;
+      font-size: 34px;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 27px;
+      transition: .25s;
+    }
+
+    .project:hover {
+      border-color: rgba(77,141,255,.6);
+      transform: translateY(-4px);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .project h3 {
+      color: white;
+      font-size: 21px;
+      margin: 12px 0;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      background: rgba(77,141,255,.12);
+      color: #9fc1ff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 11px;
+      color: #c5d3e8;
+      border: 1px solid var(--border);
+      padding: 4px 9px;
+      border-radius: 20px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 10px 15px;
+      border-radius: 7px;
+      color: #c8d8f3;
+      font-size: 13px;
+    }
+
+    .contact-panel {
+      background: linear-gradient(120deg, #142b4d, #101c31);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    .contact-panel h2 {
+      font-size: 32px;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .note {
+      color: #8497b3;
+      font-size: 12px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 12px; font-size: 12px; }
+      .projects, .about-layout { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 85px 0; }
+      .button { margin-bottom: 10px; }
+      .button-outline { margin-left: 0; }
+      .contact-panel { padding: 30px 20px; }
+      .section-heading h2 { font-size: 29px; }
+    }
+
+    @media (max-width: 430px) {
+      .logo { font-size: 17px; }
+      .nav-links { gap: 9px; }
+      .nav-links a { font-size: 11px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">OJ<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="eyebrow">AI Automation Portfolio</div>
+      <h1>Ohanyere <span>Jude</span></h1>
+      <h2>AI Automation Specialist | n8n Workflow Developer</h2>
+      <p>
+        I build practical automation systems that connect AI tools,
+        business applications and APIs to simplify repetitive tasks,
+        improve customer communication and make everyday business
+        processes more efficient.
+      </p>
+      <a class="button" href="#projects">Explore My Projects</a>
+      <a class="button button-outline" href="#about">More About Me</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <small>My Work</small>
+        <h2>Featured Projects</h2>
+        <p>
+          A selection of automation workflows demonstrating how I use
+          n8n, AI integrations and business applications to solve
+          practical problems.
+        </p>
+      </div>
+
+      <div class="projects">
+
+        <article class="project">
+          <div class="project-number">PROJECT 01</div>
+          <h3>AI-Powered WhatsApp Assistant & Lead Capture</h3>
+          <p>
+            An AI-powered WhatsApp assistant that processes incoming
+            customer messages, generates relevant replies, identifies
+            potential leads and captures useful customer information.
+            Conversations requiring additional attention can be flagged
+            for human review.
+          </p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">WhatsApp</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Gmail</span>
+          </div>
+          <span class="status">Active in exported workflow</span>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJECT 02</div>
+          <h3>AI Customer Query Classification & Human Review</h3>
+          <p>
+            An intelligent customer support workflow that uses AI to
+            classify incoming enquiries, prepare responses for simple
+            questions and route more sensitive or complex requests
+            to a human for review.
+          </p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Gmail</span>
+          </div>
+          <span class="status">Not active in exported workflow</span>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJECT 03</div>
+          <h3>Automated Quote Email Delivery</h3>
+          <p>
+            A scheduled automation that retrieves a random quote from
+            an external API and delivers the quote and its author's
+            name through Gmail. The exported workflow is configured
+            to run every hour.
+          </p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">HTTP Request</span>
+            <span class="tag">API Integration</span>
+            <span class="tag">Gmail</span>
+          </div>
+          <span class="status">Not active in exported workflow</span>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJECT 04</div>
+          <h3>AI Email Summarizer & Draft Creator</h3>
+          <p>
+            An email productivity workflow that monitors incoming
+            emails, uses AI to generate concise summaries and creates
+            Gmail drafts to help make reviewing and responding to
+            messages easier.
+          </p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">Gmail</span>
+            <span class="tag">AI Processing</span>
+          </div>
+          <span class="status">Not active in exported workflow</span>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJECT 05</div>
+          <h3>Automated Form Response Notifications</h3>
+          <p>
+            A form-submission notification system that monitors
+            Google Sheets for new entries and automatically sends
+            email notifications containing important submission
+            information.
+          </p>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Gmail</span>
+            <span class="tag">Workflow Automation</span>
+          </div>
+          <span class="status">Active in exported workflow</span>
+        </article>
+
+      </div>
+
+      <p class="note">
+        Project descriptions are based on exported workflow configurations.
+        Active status reflects the exported files and does not independently
+        confirm live production operation.
+      </p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <small>Get to Know Me</small>
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            I'm an aspiring AI Automation Specialist with a strong
+            interest in building useful systems that connect artificial
+            intelligence, APIs and business applications.
+          </p>
+          <br>
+          <p>
+            My work focuses on designing logical workflows, handling
+            information between applications, automating customer
+            communication and creating systems that reduce repetitive
+            manual work.
+          </p>
+          <br>
+          <p>
+            I'm continuously developing my technical skills and exploring
+            new ways to apply automation to real-world business challenges.
+            My goal is to create reliable, practical solutions that make
+            technology work smarter for people and businesses.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="color:white; margin-bottom:18px;">Tools & Skills</h3>
+          <div class="skills">
+            <span class="skill">n8n Automation</span>
+            <span class="skill">OpenAI Integration</span>
+            <span class="skill">Google Sheets</span>
+            <span class="skill">Gmail Automation</span>
+            <span class="skill">WhatsApp Integration</span>
+            <span class="skill">HTTP APIs</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Workflow Logic</span>
+            <span class="skill">Data Handling</span>
+            <span class="skill">Human-in-the-Loop</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel">
+      <h2>Let's Build Something Smart.</h2>
+      <p>
+        I'm open to remote opportunities, collaborations and
+        AI automation projects. Feel free to reach out.
+      </p>
+
+      <div class="skills" style="justify-content:center; margin:25px 0;">
+        <a class="skill" href="mailto:ohanyerejude009@gmail.com">
+          ✉ Email: ohanyerejude009@gmail.com
+        </a>
+
+        <a class="skill"
+           href="https://wa.me/2349074847564"
+           target="_blank" rel="noopener">
+          WhatsApp: 09074847564
+        </a>
+
+        <a class="skill" href="tel:+2347072339184">
+          Call: 07072339184
+        </a>
+      </div>
+
+      <a class="button"
+         href="https://wa.me/2349074847564"
+         target="_blank" rel="noopener">
+        Message Me on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
